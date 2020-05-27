@@ -1,17 +1,18 @@
 resources:
-  - name: go_build_info_publishtest
+  - name: vijay_go_build_publish
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_art
       buildName: go_example_build_publish_varsha
       buildNumber: 32
-  - name: artifactory_go_module_example
+      
+  - name: vijay_artifactory_go_module_example
     type: GitRepo
     configuration:
-      path: vishnurao12/artifactory-go-example
+      path: vijayreddy1991/artifactory-go-example
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: vijay_git
   - name: go_build_info_publish_moduletest
     type: BuildInfo
     configuration:
@@ -27,13 +28,13 @@ resources:
   - name: artifactory_go_exampletest
     type: GitRepo
     configuration:
-      path: vishnurao12/project-examples
+      path: vijayreddy1991/artifactory-go-example
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: vijay_git
       
 pipelines:      
-  - name: varsha_goBuildtest
+  - name: vijay_goBuildtest
     configuration:
       nodePool: win_2019
     steps:
@@ -51,6 +52,7 @@ pipelines:
         execution:
           onStart:
             - go version
+            
       - name: publish_go_binarytest
         type: GoPublishBinary
         configuration:
@@ -59,13 +61,15 @@ pipelines:
           targetRepository: test-go-local
           integrations:
             - name: varsha_art
+            
       - name: publish_buildtest
         type: PublishBuildInfo
         configuration:
           inputSteps:
             - name: publish_go_binarytest
           outputResources:
-            - name: go_build_info_publishtest
+            - name: vijay_go_build_publish
+            
       - name: publish_go_moduletest
         type: GoPublishModule
         execution:
@@ -79,9 +83,10 @@ pipelines:
           integrations:
             - name: varsha_art
           inputResources:
-            - name: artifactory_go_module_example
+            - name: vijay_artifactory_go_module_example
           outputResources:
             - name: go_build_info_publish_moduletest
+            
       - name: promote_build_gotest_binary
         type: PromoteBuild
         configuration:
@@ -89,7 +94,7 @@ pipelines:
           integrations:
             - name: varsha_art
           inputResources:
-            - name: go_build_info_publishtest
+            - name: vijay_go_build_publish
           outputResources:
             - name: promoted_go_build_info_go_publishtest
 
@@ -102,6 +107,6 @@ pipelines:
           inputResources:
             - name: go_build_info_publish_moduletest
           outputResources:
-            - name: promoted_go_build_info_go_publishtest      
+            - name: promoted_go_build_info_go_publishtest     
       
       
