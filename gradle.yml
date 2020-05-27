@@ -35,6 +35,8 @@ pipelines:
           onStart:
             - javac -version
             - gradle --version
+            
+            
       - name: publish_build_info_gradle
         type: PublishBuildInfo
         execution:
@@ -45,6 +47,8 @@ pipelines:
             - name: gradle_build_step
           outputResources:
             - name: vijay_gradle
+            
+            
       - name: promote_build_info_gradle
         type: PromoteBuild
         configuration:
@@ -53,7 +57,7 @@ pipelines:
           integrations:
             - name: varsha_art
           inputResources:
-            - name: build_info_gradle
+            - name: vijay_gradle
           outputResources:
             - name: vijay_promoted_build_info_gradle
             
