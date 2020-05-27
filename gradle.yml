@@ -1,11 +1,11 @@
 resources:
-  - name: build_info_gradle
+  - name: vijay_gradle
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_art
       buildName: full-gradle-native
       buildNumber: 1
-  - name: promoted_build_info_gradle
+  - name: vijay_promoted_build_info_gradle
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_art
@@ -14,11 +14,11 @@ resources:
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v
-      path: vishnurao12/project-examples
+      gitProvider: vijay_git
+      path: vijayreddy1991/project-examples
       
 pipelines:
-  - name: test_gradle_pipeline
+  - name: vijay_gradle_pipeline
     steps:
       - name: gradle_build_step
         type: GradleBuild
@@ -44,7 +44,7 @@ pipelines:
           inputSteps:
             - name: gradle_build_step
           outputResources:
-            - name: build_info_gradle
+            - name: vijay_gradle
       - name: promote_build_info_gradle
         type: PromoteBuild
         configuration:
@@ -55,6 +55,6 @@ pipelines:
           inputResources:
             - name: build_info_gradle
           outputResources:
-            - name: promoted_build_info_gradle
+            - name: vijay_promoted_build_info_gradle
             
             
