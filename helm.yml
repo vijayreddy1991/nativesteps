@@ -2,7 +2,7 @@ resources:
   - name: git_vijay
     type: GitRepo
     configuration:
-      gitProvider: git_vijay
+      gitProvider: vijay_git
       path: vijayreddy1991/charts
    
   - name: helm_repo
