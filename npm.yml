@@ -1,0 +1,79 @@
+resources:
+  - name: npmHelloWorld_repo
+    type: GitRepo
+    configuration:
+      path: vijayreddy1991/npmHelloWorld
+      gitProvider: vijay_git
+  - name: npm_build_info_publish1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildName: npm_publish
+      buildNumber: 1
+  - name: npm_build_info_promoted
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildName: npm+promote
+      buildNumber: 1
+      
+      
+pipelines:
+  - name: npm_vijay
+    configuration:
+      nodePool: win_2019
+    steps:
+      - name: build_npm
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+          integrations:
+            - name: varsha_art
+      - name: publish_npm
+        type: NpmPublish
+        configuration:
+          repositoryName: npm-virtual
+          inputSteps:
+            - name: build_npm
+          integrations:
+            - name: varsha_art
+      - name: publish_build_info
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_npm
+          outputResources:
+            - name: npm_build_info_publish1
+      - name: build_npm_remote
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-virtual
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+          integrations:
+            - name: varsha_art
+      - name: publish_npm_auto_true
+        type: NpmPublish
+        configuration:
+          repositoryName: npm-virtual
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: build_npm_remote
+          outputResources:
+            - name: npm_build_info_publish1
+          integrations:
+            - name: varsha_art
+      - name: promote_build_npm
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: varsha_art
+          inputResources:
+            - name: npm_build_info_publish1
+          outputResources:
+            - name: npm_build_info_promoted
