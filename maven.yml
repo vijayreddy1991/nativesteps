@@ -1,0 +1,59 @@
+resources:
+  - name: mvnBuild_infoo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildName: mvn_sample_build_varsha
+      buildNumber: 9
+  - name: mvnBuild_infopromoted01
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildName: mvn_promote_build_varsha
+      buildNumber: 3
+  - name: mvn_repo04
+    type: GitRepo
+    configuration:
+      gitProvider: vijay_git
+      path: vijayreddy1991/project-examples
+      
+pipelines:
+  name: vijay_mvn_test
+    steps:
+      - name: mvnBuild_sample
+        type: MvnBuild
+        configuration:
+          sourceLocation: ./artifactory-maven-plugin-example
+          mvnCommand: clean install
+          configFileLocation: .
+          configFileName: mvn-art-config
+          inputResources:
+            - name: mvn_repo04
+          integrations:
+            - name: varsha_art
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
+      - name: mvnBuild_publishs
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: mvnBuild_sample
+          outputResources:
+            - name: mvnBuild_infoo
+      - name: mvn_build_promote
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          includeDependencies: true
+          status: promote success
+          comment: >-
+            maven build should be promoted from varsha-local. maven build should be
+            promoted from varsha-local. maven build should be promoted from
+            varsha-local. maven build should be promoted from varsha-local
+          copy: true
+          inputResources:
+            - name: mvnBuild_infoo
+          outputResources:
+            - name: mvnBuild_infopromoted01
