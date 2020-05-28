@@ -18,7 +18,7 @@ resources:
       path: vijayreddy1991/project-examples
       
 pipelines:
-  name: vijay_mvn_test
+  - name: vijay_mvn_test
     steps:
       - name: mvnBuild_sample
         type: MvnBuild
