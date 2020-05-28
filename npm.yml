@@ -1,16 +1,16 @@
 resources:
-  - name: npmHelloWorld_repo
+  - name: npmHelloWorld_vijay
     type: GitRepo
     configuration:
       path: vijayreddy1991/npmHelloWorld
       gitProvider: vijay_git
-  - name: npm_build_info_publish1
+  - name: npm_build_info_publish_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_art
       buildName: npm_publish
       buildNumber: 1
-  - name: npm_build_info_promoted
+  - name: npm_build_info_promote_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_art
@@ -46,14 +46,14 @@ pipelines:
           inputSteps:
             - name: publish_npm
           outputResources:
-            - name: npm_build_info_publish1
+            - name: npm_build_info_publish_vijay
       - name: build_npm_remote
         type: NpmBuild
         configuration:
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:
-            - name: npmHelloWorld_repo
+            - name: npmHelloWorld_vijay
           integrations:
             - name: varsha_art
       - name: publish_npm_auto_true
@@ -64,7 +64,7 @@ pipelines:
           inputSteps:
             - name: build_npm_remote
           outputResources:
-            - name: npm_build_info_publish1
+            - name: npm_build_info_publish_vijay
           integrations:
             - name: varsha_art
       - name: promote_build_npm
@@ -74,6 +74,6 @@ pipelines:
           integrations:
             - name: varsha_art
           inputResources:
-            - name: npm_build_info_publish1
+            - name: npm_build_info_publish_vijay
           outputResources:
-            - name: npm_build_info_promoted
+            - name: npm_build_info_promote_vijay
