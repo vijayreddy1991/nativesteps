@@ -26,7 +26,7 @@ pipelines:
           gradleCommand: clean artifactoryPublish -b build.gradle
           sourceLocation: gradle-examples/gradle-example-minimal
           configFileLocation: .
-          configFileName: build.gradle #gradle-art-config
+          configFileName: gradle-art-config
           inputResources:
             - name: gradle_repo
           integrations:
