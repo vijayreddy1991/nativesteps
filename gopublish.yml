@@ -28,7 +28,7 @@ resources:
   - name: artifactory_go_exampletest
     type: GitRepo
     configuration:
-      path: vijayreddy1991/artifactory-go-example
+      path: vijayreddy1991/project-examples
       branches:
         include: master
       gitProvider: vijay_git
