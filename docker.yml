@@ -1,0 +1,71 @@
+resources:
+  - name: docker_Builds
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildNumber: 1
+      buildName: dockertest
+  - name: docker_build_promotes
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_art
+      buildNumber: 1
+      buildName: dockertest
+  - name: dockerbuilds
+    type: GitRepo
+    configuration:
+      path: ranjansingh41/test
+      gitProvider: ranjan_github
+      branches:
+        include: docker
+        
+pipelines:
+  - name: docker
+    steps:
+      - name: dockerBuild
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: 'ec2-18-232-118-117.compute-1.amazonaws.com:8082/docker-local/node'
+          dockerImageTag: latest
+          integrations:
+            - name: varsha_art
+          inputResources:
+            - name: dockerbuilds
+        execution:
+          onStart:
+            - echo "hi"
+            - docker images
+            - printenv
+            - ls -la
+          onSuccess:
+            - docker images
+      - name: dockerPush
+        type: DockerPush
+        configuration:
+          autoPublishBuildInfo: false
+          targetRepository: docker-local
+          integrations:
+            - name: varsha_art
+          inputSteps:
+            - name: dockerBuild
+      - name: dockerPublish
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: dockerPush
+          outputResources:
+            - name: docker_Builds
+      - name: dockerPromote
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          inputSteps:
+            - name: dockerPublish
+          integrations:
+            - name: varsha_art
+          inputResources:
+            - name: docker_Builds
+          outputResources:
+            - name: docker_build_promotes
