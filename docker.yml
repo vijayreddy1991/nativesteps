@@ -14,8 +14,8 @@ resources:
   - name: dockerbuilds
     type: GitRepo
     configuration:
-      path: ranjansingh41/test
-      gitProvider: ranjan_github
+      path: vijayreddy1991/u14javall
+      gitProvider: vijay_git
       branches:
         include: docker
         
