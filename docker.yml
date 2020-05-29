@@ -27,7 +27,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'ec2-18-232-118-117.compute-1.amazonaws.com:8082/docker-local/node'
+          dockerImageName: 'http://pipe-master.jfrog.info:8082/docker-local/node'
           dockerImageTag: latest
           integrations:
             - name: varsha_art
