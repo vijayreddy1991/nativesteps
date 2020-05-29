@@ -20,7 +20,7 @@ resources:
         include: docker
         
 pipelines:
-  - name: docker
+  - name: docker_vijay
     steps:
       - name: dockerBuild
         type: DockerBuild
