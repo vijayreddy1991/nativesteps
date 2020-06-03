@@ -1,17 +1,17 @@
 resources:
-  - name: docker_Builds
+  - name: docker_Build_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
-  - name: docker_build_promotes
+  - name: docker_build_promote_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
-  - name: dockerbuilds
+  - name: dockerbuild_vijay
     type: GitRepo
     configuration:
       path: vijayreddy1991/u14
@@ -32,7 +32,7 @@ pipelines:
           integrations:
             - name: vijay_art
           inputResources:
-            - name: dockerbuilds
+            - name: dockerbuild_vijay
         execution:
           onStart:
             - echo "hi"
@@ -55,7 +55,7 @@ pipelines:
           inputSteps:
             - name: dockerPush
           outputResources:
-            - name: docker_Builds
+            - name: docker_Build_vijay
       - name: dockerPromote
         type: PromoteBuild
         configuration:
@@ -65,9 +65,9 @@ pipelines:
           integrations:
             - name: vijay_art
           inputResources:
-            - name: docker_Builds
+            - name: docker_Build_vijay
           outputResources:
-            - name: docker_build_promotes
+            - name: docker_build_promote_vijay
             
             
 
