@@ -5,16 +5,18 @@ resources:
       sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
+      
   - name: docker_build_promote_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
+      
   - name: dockerbuild_vijay
     type: GitRepo
     configuration:
-      path: vijayreddy1991/u14
+      path: vijayreddy1991/nativesteps
       gitProvider: vijay_git
       branches:
         include: docker
