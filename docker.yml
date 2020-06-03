@@ -2,13 +2,13 @@ resources:
   - name: docker_Builds
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
   - name: docker_build_promotes
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: vijay_art
       buildNumber: 1
       buildName: dockertest
   - name: dockerbuilds
@@ -27,10 +27,10 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'pipe-master.jfrog.info:8082/docker-local/node'
-          dockerImageTag: latest
+          dockerImageName: 'pipe-master.jfrog.info:8082/docker-local/pipelines'
+          dockerImageTag: '${run_number}'
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputResources:
             - name: dockerbuilds
         execution:
@@ -44,10 +44,9 @@ pipelines:
       - name: dockerPush
         type: DockerPush
         configuration:
-          autoPublishBuildInfo: false
           targetRepository: docker-local
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputSteps:
             - name: dockerBuild
       - name: dockerPublish
@@ -64,10 +63,15 @@ pipelines:
           inputSteps:
             - name: dockerPublish
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputResources:
             - name: docker_Builds
           outputResources:
             - name: docker_build_promotes
+            
+            
+
+
+
             
             
