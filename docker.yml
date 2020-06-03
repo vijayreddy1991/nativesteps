@@ -29,7 +29,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'ec2-52-23-233-68.compute-1.amazonaws.com:8082/artifactory/docker-local/pipelines'
+          dockerImageName: '34.68.55.176:8082/docker-local/pipelines'
           dockerImageTag: '${run_number}'
           integrations:
             - name: vijay_art
