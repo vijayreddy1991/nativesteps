@@ -35,8 +35,8 @@ resources:
       
 pipelines:      
   - name: vijay_goBuildtest
-    configuration:
-      nodePool: win_2019
+#     configuration:
+#       nodePool: 
     steps:
       - name: build_gotest
         type: GoBuild
