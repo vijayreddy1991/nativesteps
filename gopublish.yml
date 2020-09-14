@@ -12,7 +12,7 @@ resources:
       path: vijayreddy1991/artifactory-go-example
       branches:
         include: master
-      gitProvider: vijay_git
+      gitProvider: vijay
   - name: go_build_info_publish_moduletest
     type: BuildInfo
     configuration:
@@ -31,7 +31,7 @@ resources:
       path: vijayreddy1991/project-examples
       branches:
         include: master
-      gitProvider: vijay_git
+      gitProvider: vijay
       
 pipelines:      
   - name: vijay_goBuildtest
@@ -81,7 +81,7 @@ pipelines:
           targetRepository: test-go-local
           autoPublishBuildInfo: true
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputResources:
             - name: vijay_artifactory_go_module_example
           outputResources:
