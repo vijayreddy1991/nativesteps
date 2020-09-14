@@ -53,7 +53,7 @@ pipelines:
             JFROG_CLI_MIN_CHECKSUM_DEPLOY_SIZE_KB: '100000'
             GOPATH: /root/.gvm/gos/go1.13.12/bin
           inputSteps:
-            - name: build_go_app
+            - name: build_go_app_vijay
           targetRepository: go-local-dev/go-app/
           integrations:
             - name: art_v
