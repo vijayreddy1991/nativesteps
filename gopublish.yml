@@ -2,7 +2,7 @@ resources:
   - name: vijay_go_build_publish
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: vijay_art
       buildName: go_example_build_publish_varsha
       buildNumber: 32
       
@@ -16,13 +16,13 @@ resources:
   - name: go_build_info_publish_moduletest
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: vijay_art
       buildName: go_example_module_publish_varsha
       buildNumber: 332
   - name: promoted_go_build_info_go_publishtest
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: vijay_art
       buildName: promote_go_build_info_publish
       buildNumber: 35
   - name: artifactory_go_exampletest
@@ -48,7 +48,7 @@ pipelines:
           inputResources:
             - name: artifactory_go_exampletest
           integrations:
-            - name: varsha_art
+            - name: vijay_art
         execution:
           onStart:
             - go version
@@ -60,7 +60,7 @@ pipelines:
             - name: build_gotest
           targetRepository: test-go-local
           integrations:
-            - name: varsha_art
+            - name: vijay_art
             
       - name: publish_buildtest
         type: PublishBuildInfo
@@ -92,7 +92,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputResources:
             - name: vijay_go_build_publish
           outputResources:
@@ -103,7 +103,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           integrations:
-            - name: varsha_art
+            - name: vijay_art
           inputResources:
             - name: go_build_info_publish_moduletest
           outputResources:
