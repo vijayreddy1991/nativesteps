@@ -23,7 +23,7 @@ pipelines:
             name: docker.bintray.io/jfrog/pipelines-u18go
             tag: 1.14.4
             autoPull: true
-      nodePool: u18-us-west1-dynamic
+#       nodePool: u18-us-west1-dynamic
     steps:
       - name: build_go_app_vijay
         type: GoBuild
