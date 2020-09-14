@@ -1,0 +1,64 @@
+resources:
+  - name: vijay_test_pipelines
+    type: GitRepo
+    configuration:
+      gitProvider: vijay
+      path: vijayreddy1991/nativesteps
+      branches:
+        include: master
+      buildOn:
+        commit: true
+        tagCreate: true
+        
+pipelines:  
+  - name: go_app_vijay
+    configuration:
+      environmentVariables:
+        readOnly:
+          JFROG_CLI_LOG_LEVEL: DEBUG
+      runtime:
+        type: image
+        image:
+          custom:
+            name: docker.bintray.io/jfrog/pipelines-u18go
+            tag: 1.14.4
+            autoPull: true
+      nodePool: u18-us-west1-dynamic
+    steps:
+      - name: build_go_app_vijay
+        type: GoBuild
+        configuration:
+          environmentVariables:
+            GOPATH: /root/.gvm/gos/go1.13.12/bin
+          sourceLocation: .
+          repository: go-virtual
+          outputLocation: /tmp/dist
+          outputFile: go-app
+          goCommand: build -o /tmp/dist/go-app
+          inputResources:
+            - name: vijay_test_pipelines
+          integrations:
+            - name: art_v
+        execution:
+          onStart:
+            - echo $step_tmp_dir
+            - printenv
+            - echo $GOPATH
+          onFailure:
+            - echo "step FAILED!!!"
+      - name: publish_go_app_vijay
+        type: GoPublishBinary
+        configuration:
+          environmentVariables:
+            JFROG_CLI_MIN_CHECKSUM_DEPLOY_SIZE_KB: '100000'
+            GOPATH: /root/.gvm/gos/go1.13.12/bin
+          inputSteps:
+            - name: build_go_app
+          targetRepository: go-local-dev/go-app/
+          integrations:
+            - name: art_v
+        execution:
+          onSuccess:
+            - ls $step_tmp_dir/goOutput
+          onFailure:
+            - echo "step GoPublishBinary FAILED!!!"
