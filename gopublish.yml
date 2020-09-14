@@ -45,6 +45,7 @@ pipelines:
           repository: test-go-local
           outputLocation: /tmp/dist
           outputFile: go-app
+          goCommand: build -o /tmp/vijay/go-app
           inputResources:
             - name: artifactory_go_exampletest
           integrations:
@@ -70,43 +71,43 @@ pipelines:
           outputResources:
             - name: vijay_go_build_publish
             
-      - name: publish_go_moduletest
-        type: GoPublishModule
-        execution:
-          onStart:
-            - go version
-        configuration:
-          sourceLocation: .
-          version: v0.0.0
-          targetRepository: test-go-local
-          autoPublishBuildInfo: true
-          integrations:
-            - name: vijay_art
-          inputResources:
-            - name: vijay_artifactory_go_module_example
-          outputResources:
-            - name: go_build_info_publish_moduletest
+#       - name: publish_go_moduletest
+#         type: GoPublishModule
+#         execution:
+#           onStart:
+#             - go version
+#         configuration:
+#           sourceLocation: .
+#           version: v0.0.0
+#           targetRepository: test-go-local
+#           autoPublishBuildInfo: true
+#           integrations:
+#             - name: vijay_art
+#           inputResources:
+#             - name: vijay_artifactory_go_module_example
+#           outputResources:
+#             - name: go_build_info_publish_moduletest
             
-      - name: promote_build_gotest_binary
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: vijay_art
-          inputResources:
-            - name: vijay_go_build_publish
-          outputResources:
-            - name: promoted_go_build_info_go_publishtest
+#       - name: promote_build_gotest_binary
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: vijay_art
+#           inputResources:
+#             - name: vijay_go_build_publish
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest
 
-      - name: promote_build_gotest_module
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: vijay_art
-          inputResources:
-            - name: go_build_info_publish_moduletest
-          outputResources:
-            - name: promoted_go_build_info_go_publishtest     
+#       - name: promote_build_gotest_module
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: vijay_art
+#           inputResources:
+#             - name: go_build_info_publish_moduletest
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest     
       
       
