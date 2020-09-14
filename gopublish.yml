@@ -44,7 +44,7 @@ pipelines:
           sourceLocation: golang-example/hello
           repository: test-go-local
           outputLocation: /tmp/dist
-          outputFile: hello_varsha
+          outputFile: go-app
           inputResources:
             - name: artifactory_go_exampletest
           integrations:
