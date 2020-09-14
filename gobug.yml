@@ -30,7 +30,7 @@ pipelines:
         configuration:
           environmentVariables:
             GOPATH: /root/.gvm/gos/go1.13.12/bin
-          sourceLocation: golang-example/hello
+          sourceLocation: project-examples/golang-example/hello
           repository: test-go-local
           outputLocation: /tmp/dist
           outputFile: go-app
