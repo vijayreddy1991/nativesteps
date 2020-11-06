@@ -29,7 +29,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'c8testrt.jfrog-pipelines.com/docker-local/pipelines'
+          dockerImageName: 'c8testrt.jfrog-pipelines.com/pipelines/api/docker-local/pipelines'
           dockerImageTag: '${run_number}'
           integrations:
             - name: vijay_art
