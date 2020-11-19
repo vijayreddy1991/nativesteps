@@ -2,14 +2,14 @@ resources:
   - name: docker_Build_vijay
     type: BuildInfo
     configuration:
-      sourceArtifactory: vijay_art
+      sourceArtifactory: art_v
       buildNumber: 1
       buildName: dockertest
       
   - name: docker_build_promote_vijay
     type: BuildInfo
     configuration:
-      sourceArtifactory: vijay_art
+      sourceArtifactory: art_v
       buildNumber: 1
       buildName: dockertest
       
@@ -17,7 +17,7 @@ resources:
     type: GitRepo
     configuration:
       path: vijayreddy1991/nativesteps
-      gitProvider: vijay_git
+      gitProvider: git_v
       branches:
         include: docker
         
@@ -32,7 +32,7 @@ pipelines:
           dockerImageName: 'c8testrt.jfrog-pipelines.com/pipelines/api/docker-local/pipelines'
           dockerImageTag: '${run_number}'
           integrations:
-            - name: vijay_art
+            - name: art_v
           inputResources:
             - name: dockerbuild_vijay
         execution:
@@ -48,7 +48,7 @@ pipelines:
         configuration:
           targetRepository: docker-local
           integrations:
-            - name: vijay_art
+            - name: art_v
           inputSteps:
             - name: dockerBuild
       - name: dockerPublish
@@ -65,7 +65,7 @@ pipelines:
           inputSteps:
             - name: dockerPublish
           integrations:
-            - name: vijay_art
+            - name: art_v
           inputResources:
             - name: docker_Build_vijay
           outputResources:
