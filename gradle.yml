@@ -2,19 +2,19 @@ resources:
   - name: vijay_gradle
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: full-gradle-native
       buildNumber: 1
   - name: vijay_promoted_build_info_gradle
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: promotoed-full-gradle-native
       buildNumber: 1
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: vijay_git
+      gitProvider: git_v
       path: vijayreddy1991/project-examples
       
 pipelines:
@@ -30,7 +30,7 @@ pipelines:
           inputResources:
             - name: gradle_repo
           integrations:
-            - name: varsha_art
+            - name: art_v
         execution:
           onStart:
             - javac -version
@@ -55,7 +55,7 @@ pipelines:
           targetRepository: test-generic-local
           copy: true
           integrations:
-            - name: varsha_art
+            - name: art_v
           inputResources:
             - name: vijay_gradle
           outputResources:
