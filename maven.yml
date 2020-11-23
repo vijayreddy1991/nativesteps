@@ -2,19 +2,19 @@ resources:
   - name: mavenBuild
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: mvn_sample_build_varsha
       buildNumber: 9
   - name: mavenBuild_infopromote
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: mvn_promote_build_varsha
       buildNumber: 3
   - name: maven_repo
     type: GitRepo
     configuration:
-      gitProvider: vijay_git
+      gitProvider: git_v
       path: vijayreddy1991/project-examples
       
 pipelines:
@@ -30,7 +30,7 @@ pipelines:
           inputResources:
             - name: maven_repo
           integrations:
-            - name: varsha_art
+            - name: art_v
         execution:
           onStart:
             - javac -version
