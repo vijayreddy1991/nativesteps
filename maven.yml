@@ -11,7 +11,7 @@ resources:
       sourceArtifactory: art_v
       buildName: mvn_promote_build_varsha
       buildNumber: 3
-  - name: maven_repo
+  - name: maven_repo1
     type: GitRepo
     configuration:
       gitProvider: git_v
@@ -28,7 +28,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: maven_repo
+            - name: maven_repo1
           integrations:
             - name: art_v
         execution:
