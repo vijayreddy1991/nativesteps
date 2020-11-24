@@ -14,7 +14,7 @@ resources:
   - name: maven_repo1
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: vijay
       path: vijayreddy1991/project-examples
       
 pipelines:
