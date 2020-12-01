@@ -17,7 +17,7 @@ resources:
     type: GitRepo
     configuration:
       path: vijayreddy1991/nativesteps
-      gitProvider: git_v
+      gitProvider: vijay
       branches:
         include: docker
         
