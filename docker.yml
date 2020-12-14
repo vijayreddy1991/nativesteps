@@ -60,7 +60,7 @@ pipelines:
           inputSteps:
             - name: dockerPush
           outputResources:
-            - name: docker_Build_vijay
+            - name: dockerbuild_vijay
       - name: dockerPromote
         type: PromoteBuild
         configuration:
@@ -70,7 +70,7 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name: docker_Build_vijay
+            - name: dockerbuild_vijay
           outputResources:
             - name: docker_build_promote_vijay
             
