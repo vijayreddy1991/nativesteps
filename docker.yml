@@ -54,6 +54,7 @@ pipelines:
             - name: art_v
           inputSteps:
             - name: dockerBuild
+            
       - name: dockerPublish
         type: PublishBuildInfo
         configuration:
@@ -61,6 +62,7 @@ pipelines:
             - name: dockerPush
           outputResources:
             - name: dockerbuild_vijay
+            
       - name: dockerPromote
         type: PromoteBuild
         configuration:
