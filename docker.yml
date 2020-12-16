@@ -31,7 +31,8 @@ pipelines:
           dockerFileName: Dockerfile
 #           dockerImageName: 'c8testrt.jfrog-pipelines.com/pipelines/api/docker-local/pipelines'
 #           dockerImageName: 'rhel8rt.jfrog-pipelines.com/docker-local/pipelines'
-          dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/pipelines'
+#           dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/pipelines'
+          dockerImageName: 'releasetest1.jfrog.info/docker-local/pipelines'
 #           dockerImageName: 'u20.jfrog-pipelines.com/docker-local/pipelines'
           dockerImageTag: '${run_number}'
           integrations:
