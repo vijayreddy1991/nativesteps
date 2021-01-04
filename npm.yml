@@ -29,7 +29,7 @@ pipelines:
           repositoryName: npm-virtual
           sourceLocation: .
           inputResources:
-            - name: npmHelloWorld_repo
+            - name: npmHelloWorld_vijay
           integrations:
             - name: varsha_art
       - name: publish_npm
