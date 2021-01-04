@@ -21,7 +21,7 @@ resources:
 pipelines:
   - name: npm_vijay
     configuration:
-      nodePool: win_2019
+#       nodePool: win_2019
     steps:
       - name: build_npm
         type: NpmBuild
