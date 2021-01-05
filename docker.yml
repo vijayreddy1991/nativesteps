@@ -23,6 +23,9 @@ resources:
         
 pipelines:
   - name: docker_vijay
+    configuration:  
+      runtime: # optional            
+        type: host 
     steps:
       - name: dockerBuild
         type: DockerBuild
