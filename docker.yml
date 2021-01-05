@@ -56,26 +56,26 @@ pipelines:
           inputSteps:
             - name: dockerBuild
             
-      - name: dockerPublish
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: dockerPush
-          outputResources:
-            - name: dockerbuild_vijay
-            
-      - name: dockerPromote
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          inputSteps:
-            - name: dockerPublish
-          integrations:
-            - name: art_v
-#           inputResources:
+#       - name: dockerPublish
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: dockerPush
+#           outputResources:
 #             - name: dockerbuild_vijay
-          outputResources:
-            - name: docker_build_promote_vijay
+            
+#       - name: dockerPromote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           inputSteps:
+#             - name: dockerPublish
+#           integrations:
+#             - name: art_v
+# #           inputResources:
+# #             - name: dockerbuild_vijay
+#           outputResources:
+#             - name: docker_build_promote_vijay
             
             
 
