@@ -48,10 +48,10 @@ pipelines:
           targetRepository: test-generic-local
           includeDependencies: true
           status: promote success
-          comment: >-
-            maven build should be promoted from varsha-local. maven build should be
-            promoted from varsha-local. maven build should be promoted from
-            varsha-local. maven build should be promoted from varsha-local
+#           comment: >-
+#             maven build should be promoted from varsha-local. maven build should be
+#             promoted from varsha-local. maven build should be promoted from
+#             varsha-local. maven build should be promoted from varsha-local
           copy: true
           inputResources:
             - name: mavenBuild_vijay
