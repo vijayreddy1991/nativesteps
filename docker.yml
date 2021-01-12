@@ -6,7 +6,7 @@ resources:
       buildNumber: 1
       buildName: dockertest
       
-  - name: docker_build_promote_test
+  - name: docker_build_promote_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
