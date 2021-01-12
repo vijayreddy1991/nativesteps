@@ -109,5 +109,112 @@ pipelines:
 #             - name: go_build_info_publish_moduletest
 #           outputResources:
 #             - name: promoted_go_build_info_go_publishtest     
-      
+
+#       - name: build_go
+#         type: GoBuild
+#         configuration:
+#           sourceLocation: golang-example/hello
+#           repository: test-go-local
+#           outputLocation: /tmp/dist
+#           outputFile: hello_sample
+#           inputResources:
+#             - name: artifactory_go_example
+#             - name: connecting_resource_vijay
+#           integrations:
+#             - name: art_v
+# #           inputSteps:
+# #             - name: Upload_to_artifactory
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: go
+# #                 versions:
+# #                   - "1.15.2-f2674"
+#         execution:
+#           onStart:
+# #             - "buildDir=$(find_resource_variable $inputGitRepoResourceName resourcePath)"
+# #             - "pushd $buildDir/golang-example/hello"
+# #             - "go get -insecure"
+# #             - popd
+#             - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+#             - go get -insecure
+#             - Pop-Location
+#             - go version
+
+#       - name: publish_go_binarytest
+#         type: GoPublishBinary
+#         configuration:
+# #           environmentVariables: # optional
+# #             JFROG_CLI_BUILD_NAME: "go_test"
+# #             JFROG_CLI_BUILD_NUMBER: 2387
+#           inputSteps:
+#             - name: build_go
+#           targetRepository: test-go-local
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: go
+# #                 versions:
+# #                   - "1.15.2-f2674"
+     
+#       - name: publish_buildtest
+#         type: PublishBuildInfo
+#         configuration:
+#           inputSteps:
+#             - name: publish_go_binarytest
+#           outputResources:
+#             - name: go_build_info_publishtest
+        
+#       - name: publish_go_moduletest
+#         type: GoPublishModule
+#         execution:
+#           onStart:
+#             - go version
+#         configuration:  
+# #           environmentVariables: # optional
+# #             JFROG_CLI_BUILD_NAME: "go_test"
+# #             JFROG_CLI_BUILD_NUMBER: 2387
+#           sourceLocation: .  # required
+#           version: v0.0.0           # required
+#           targetRepository: test-go-local
+#           autoPublishBuildInfo: true
+#           integrations:
+#             - name: art_v
+# #           runtime: 
+# #             type: image
+# #             image: 
+# #               auto:
+# #                 language: go
+# #                 versions:
+# #                   - "1.15.2-f2674"
+#           inputResources:
+#             - name: artifactory_go_module_example
+#           outputResources:
+#             - name: go_build_info_publish_moduletest
+            
+#       - name: promote_build_gotest_binary
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: go_build_info_publishtest #go_build_info_publish
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest
+    
+#       - name: promote_build_gotest_module
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: test-generic-local
+#           integrations:
+#             - name: art_v
+#           inputResources:
+#             - name: go_build_info_publish_moduletest
+#           outputResources:
+#             - name: promoted_go_build_info_go_publishtest
       
