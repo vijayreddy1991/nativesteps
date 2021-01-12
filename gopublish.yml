@@ -49,14 +49,14 @@ resources:
       path: vijayreddy1991/project-examples
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: vijay
   - name: artifactory_go_exampletest
     type: GitRepo
     configuration:
       path: vijayreddy1991/project-examples
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: vijay
 
   - name: artifactory_go_module_example
     type: GitRepo
@@ -64,7 +64,7 @@ resources:
       path: vijayreddy1991/artifactory-go-example
       branches:
         include: master
-      gitProvider: git_v
+      gitProvider: vijay
 
   - name: go_build_info_publish_moduletest
     type: BuildInfo
@@ -97,7 +97,7 @@ resources:
   - name: gradle_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: vijay
       path: vijayreddy1991/project-examples
 
   - name: build_info_gradle
@@ -131,14 +131,14 @@ resources:
   - name: maven_repo
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: vijay
       path: vijayreddy1991/project-examples
 
   - name: npmHelloWorld_repo
     type: GitRepo
     configuration:
       path: vijayreddy1991/npmHelloWorld
-      gitProvider: git_v
+      gitProvider: vijay
 
   - name: npm_build_info_publish1
     type: BuildInfo
@@ -164,7 +164,7 @@ resources:
   - name: git_vishnu
     type: GitRepo
     configuration:
-      gitProvider: git_v
+      gitProvider: vijay
       path: vijayreddy1991/charts
 pipelines:      
   - name: vijay_goBuildtest
