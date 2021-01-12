@@ -1,17 +1,17 @@
 resources:
-  - name: mavenBuild
+  - name: mavenBuild_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
-      buildName: mvn_sample_build_varsha
+      buildName: mvn_sample_build_vijay
       buildNumber: 9
-  - name: mavenBuild_infopromote
+  - name: mavenBuild_infopromote_vijay
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
-      buildName: mvn_promote_build_varsha
+      buildName: mvn_promote_build_vijay
       buildNumber: 3
-  - name: maven_repo1
+  - name: maven_repo_vijay
     type: GitRepo
     configuration:
       gitProvider: vijay
@@ -28,7 +28,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: maven_repo1
+            - name: maven_repo_vijay
           integrations:
             - name: art_v
         execution:
@@ -41,7 +41,7 @@ pipelines:
           inputSteps:
             - name: mvnBuild_sample
           outputResources:
-            - name: mavenBuild
+            - name: mavenBuild_vijay
       - name: mvn_build_promote
         type: PromoteBuild
         configuration:
@@ -54,6 +54,6 @@ pipelines:
             varsha-local. maven build should be promoted from varsha-local
           copy: true
           inputResources:
-            - name: mavenBuild
+            - name: mavenBuild_vijay
           outputResources:
-            - name: mavenBuild_infopromote
+            - name: mavenBuild_infopromote_vijay
