@@ -75,8 +75,8 @@ pipelines:
             - name: dockerPublish
           integrations:
             - name: art_v
-#           inputResources:
-#             - name: dockerbuild_vijay
+          inputResources:
+            - name: dockerbuild_vijay
           outputResources:
             - name: docker_build_promote_vijay
             
