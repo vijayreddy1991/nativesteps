@@ -5,7 +5,7 @@ resources:
       gitProvider: vijay
       path: vijayreddy1991/charts
    
-  - name: helm_repo
+  - name: helm_repo_vijay
     type: HelmChart
     configuration: 
       sourceArtifactory: art_v
@@ -25,7 +25,7 @@ pipelines:
           inputResources:
             - name: git_vijay                    
           outputResources:
-            - name: helm_repo                  # required
+            - name: helm_repo_vijay                  # required
  
         execution:
           onStart:
