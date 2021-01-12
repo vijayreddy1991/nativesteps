@@ -23,7 +23,7 @@ pipelines:
           chartPath: stable/tomcat
  
           inputResources:
-            - name: vijay                    
+            - name: git_vijay                    
           outputResources:
             - name: helm_repo                  # required
  
