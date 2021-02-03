@@ -226,7 +226,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           inputSteps:
-            - name: publish_go_binarytest
+            - name: publish_go_binarytest123
           outputResources:
             - name: go_build_info_publishtest123
         
