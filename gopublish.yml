@@ -178,7 +178,7 @@ pipelines:
           outputResources:
             - name: go_build_info_publish_moduletest123
             
-      - name: promote_build_gotest_binary
+      - name: promote_build_gotest_binary123
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
