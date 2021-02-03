@@ -87,85 +87,6 @@ resources:
       buildName: promote_go_build_info_publish
       buildNumber: 35
 
-#   - name: promoted_build_info_gradle
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: promotoed-full-gradle-native
-#       buildNumber: 1
-
-#   - name: gradle_repo
-#     type: GitRepo
-#     configuration:
-#       gitProvider: vijay
-#       path: vijayreddy1991/project-examples
-
-#   - name: build_info_gradle
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: full-gradle-native
-#       buildNumber: 1
-
-#   - name: mvnBuild_info
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_sample_build_master_test
-#       buildNumber: 9
-
-#   - name: mvnBuild_infoScaned
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_scan_master_test
-#       buildNumber: 2
-      
-#   - name: mvnBuild_infopromoted
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: mvn_promote_build_master_test
-#       buildNumber: 3
-      
-#   - name: maven_repo
-#     type: GitRepo
-#     configuration:
-#       gitProvider: vijay
-#       path: vijayreddy1991/project-examples
-
-#   - name: npmHelloWorld_repo
-#     type: GitRepo
-#     configuration:
-#       path: vijayreddy1991/npmHelloWorld
-#       gitProvider: vijay
-
-#   - name: npm_build_info_publish1
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm_publish
-#       buildNumber: 1
-
-#   - name: buildinfo_for_npmPublish
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm_publish
-#       buildNumber: 1
-  
-#   - name: npm_build_info_promoted
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art_v
-#       buildName: npm+promote
-#       buildNumber: 1
-
-#   - name: git_vishnu
-#     type: GitRepo
-#     configuration:
-#       gitProvider: vijay
-#       path: vijayreddy1991/charts
 pipelines:      
   - name: vijay_goBuildtest123
 #     configuration:
@@ -253,9 +174,9 @@ pipelines:
 #                 versions:
 #                   - "1.15.2-f2674"
           inputResources:
-            - name: artifactory_go_module_example
+            - name: artifactory_go_module_example123
           outputResources:
-            - name: go_build_info_publish_moduletest
+            - name: go_build_info_publish_moduletest123
             
       - name: promote_build_gotest_binary
         type: PromoteBuild
