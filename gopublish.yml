@@ -1,5 +1,5 @@
 resources:
-  - name: connecting_resource_vijay
+  - name: connecting_resource_vijay123
     type: PropertyBag
     configuration:
       key1: value1
@@ -13,7 +13,7 @@ resources:
 #       buildName: go_test
 #        buildNumber:          2387
 
-  - name: ns_aql
+  - name: ns_aql123
     type: Aql
     configuration:
       sourceArtifactory: art_v
@@ -28,7 +28,7 @@ resources:
           output: "$2/$1"
       
 
-  - name: ns_buildInfo_vijay
+  - name: ns_buildInfo_vijay123
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
@@ -179,8 +179,8 @@ pipelines:
           outputLocation: /tmp/dist
           outputFile: hello_sample
           inputResources:
-            - name: artifactory_go_example
-            - name: connecting_resource_vijay
+            - name: artifactory_go_example123
+            - name: connecting_resource_vijay123
           integrations:
             - name: art_v
 #           inputSteps:
