@@ -185,7 +185,7 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name: go_build_info_publishtest #go_build_info_publish
+            - name: go_build_info_publishtest123 #go_build_info_publish
           outputResources:
             - name: promoted_go_build_info_go_publishtest123
     
