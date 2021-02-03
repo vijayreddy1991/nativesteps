@@ -50,7 +50,7 @@ resources:
       branches:
         include: master
       gitProvider: vijay
-  - name: artifactory_go_exampletest
+  - name: artifactory_go_exampletest123
     type: GitRepo
     configuration:
       path: vijayreddy1991/project-examples
