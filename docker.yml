@@ -32,11 +32,11 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-#           dockerImageName: 'c8testrt.jfrog-pipelines.com/pipelines/api/docker-local/pipelines'
+          dockerImageName: 'u20-install.jfrog-pipelines.com/pipelines/api/docker-local/pipelines'
 #           dockerImageName: 'rhel8rt.jfrog-pipelines.com/docker-local/pipelines'
 #           dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/pipelines'
 #           dockerImageName: 'f4580.jfrog-pipelines.com/docker-local/pipelines'
-          dockerImageName: 'dev.jfrog-pipelines.com/docker-local/pipelines'
+#           dockerImageName: 'dev.jfrog-pipelines.com/docker-local/pipelines'
           dockerImageTag: '${run_number}'
           integrations:
             - name: art_v
