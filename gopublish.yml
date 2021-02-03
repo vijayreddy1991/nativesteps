@@ -119,7 +119,7 @@ pipelines:
 #             - "pushd $buildDir/golang-example/hello"
 #             - "go get -insecure"
 #             - popd
-            - Push-Location $res_artifactory_go_example_resourcePath/golang-example/hello
+            - Push-Location $res_artifactory_go_example123_resourcePath/golang-example/hello
             - go get -insecure
             - Pop-Location
             - go version
