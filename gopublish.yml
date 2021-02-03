@@ -167,7 +167,7 @@ resources:
 #       gitProvider: vijay
 #       path: vijayreddy1991/charts
 pipelines:      
-  - name: vijay_goBuildtest
+  - name: vijay_goBuildtest123
 #     configuration:
 #       nodePool: 
     steps:
