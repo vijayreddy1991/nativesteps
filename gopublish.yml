@@ -278,4 +278,7 @@ pipelines:
             - name: go_build_info_publish_moduletest123
           outputResources:
             - name: promoted_go_build_info_go_publishtest123
+            
+            
+            
       
