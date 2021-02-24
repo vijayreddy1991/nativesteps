@@ -23,13 +23,14 @@ resources:
         
 pipelines:
   - name: docker_vijay
-    configuration:  
+    configuration: 
       runtime: # optional            
         type: host 
     steps:
       - name: dockerBuild
         type: DockerBuild
         configuration:
+          affinityGroup: A
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: 'c8-install.jfrog-pipelines.com/docker-local/test'
@@ -53,6 +54,7 @@ pipelines:
       - name: dockerPush
         type: DockerPush
         configuration:
+          affinityGroup: A
           targetRepository: docker-local
           integrations:
             - name: art_v
