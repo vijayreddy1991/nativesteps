@@ -7,13 +7,13 @@ resources:
   - name: npm_build_info_publish_vijay
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: npm_publish
       buildNumber: 1
   - name: npm_build_info_promote_vijay
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_art
+      sourceArtifactory: art_v
       buildName: npm+promote
       buildNumber: 1
       
@@ -31,7 +31,7 @@ pipelines:
           inputResources:
             - name: npmHelloWorld_vijay
           integrations:
-            - name: varsha_art
+            - name: art_v
       - name: publish_npm
         type: NpmPublish
         configuration:
@@ -39,7 +39,7 @@ pipelines:
           inputSteps:
             - name: build_npm
           integrations:
-            - name: varsha_art
+            - name: art_v
       - name: publish_build_info
         type: PublishBuildInfo
         configuration:
@@ -55,7 +55,7 @@ pipelines:
           inputResources:
             - name: npmHelloWorld_vijay
           integrations:
-            - name: varsha_art
+            - name: art_v
       - name: publish_npm_auto_true
         type: NpmPublish
         configuration:
@@ -66,13 +66,13 @@ pipelines:
           outputResources:
             - name: npm_build_info_publish_vijay
           integrations:
-            - name: varsha_art
+            - name: art_v
       - name: promote_build_npm
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
           integrations:
-            - name: varsha_art
+            - name: art_v
           inputResources:
             - name: npm_build_info_publish_vijay
           outputResources:
