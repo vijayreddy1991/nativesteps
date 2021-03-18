@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       path: vijayreddy1991/npmHelloWorld
-      gitProvider: vijay_git
+      gitProvider: vijay
   - name: npm_build_info_publish_vijay
     type: BuildInfo
     configuration:
