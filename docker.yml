@@ -33,7 +33,7 @@ pipelines:
           affinityGroup: A
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 'c7-install.jfrog-pipelines.com/docker-local/test'
+          dockerImageName: 'release1442.jfrogdev.org/docker-local/test'
 #           dockerImageName: 'rhel8rt.jfrog-pipelines.com/docker-local/pipelines'
 #           dockerImageName: 'pipelines.westus.cloudapp.azure.com:8082/docker-local/pipelines'
 #           dockerImageName: 'f4580.jfrog-pipelines.com/docker-local/pipelines'
