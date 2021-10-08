@@ -47,8 +47,6 @@ pipelines:
           onStart:
             - echo "hi"
             - docker images
-            - printenv
-            - ls -la
           onSuccess:
             - docker images
       - name: dockerPush
